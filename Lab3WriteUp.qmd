@@ -161,7 +161,7 @@ Copy and paste the code for the unit square. Edit the code to draw the segments 
 **Solution**
 ```{r}
 #| label: fig-unitsquare1
-#| fig-cap: "The unit square."
+#| fig-cap: ""
 #| fig-width: 3
 #| fig-height: 3
 #| scale: "80%"
@@ -236,7 +236,7 @@ Copy and paste the code for plotting the unit square. Edit the code to draw the 
 **Solution**
 ```{r}
 #| label: fig-unitsquare2
-#| fig-cap: "The unit square."
+#| fig-cap: ""
 #| fig-width: 3
 #| fig-height: 3
 #| scale: "80%"
@@ -280,7 +280,7 @@ $$\mathbf{M}_v = \begin{bmatrix} 1 & k=0.5 \\ 0 & 1 \end{bmatrix} ~~~~~ \textrm{
 **Solution**
 ```{r}
 #| label: fig-unitsquare3.1
-#| fig-cap: "The unit square."
+#| fig-cap: ""
 #| fig-width: 3
 #| fig-height: 3
 #| scale: "80%"
@@ -309,6 +309,8 @@ ggplot() +
 det(T)
 ```
 
+The shape is different from question 1, the area is the same.
+
 ## Part b
 Use the following to generate a new shape. Compare the shape and its area to your answer in Questions 1 and the vertical shear transform in part (a).
 $$ \mathbf{M}_h = \begin{bmatrix} 1 & 0 \\ k=0.5 & 1 \end{bmatrix}~~~~~ \textrm{and} ~~~~~\mathbf{A}   = \begin{bmatrix} 1 & -7 \\ 5 & 9 \end{bmatrix}$$
@@ -316,7 +318,7 @@ $$ \mathbf{M}_h = \begin{bmatrix} 1 & 0 \\ k=0.5 & 1 \end{bmatrix}~~~~~ \textrm{
 **Solution**
 ```{r}
 #| label: fig-unitsquare3.2
-#| fig-cap: "The unit square."
+#| fig-cap: ""
 #| fig-width: 3
 #| fig-height: 3
 #| scale: "80%"
@@ -345,6 +347,8 @@ ggplot() +
 det(T)
 ```
 
+The shape is different from question 1 and part(a), the area is the same.
+
 ## Part c
 Can we shear vertically and horizontally at the same time? Use the following to generate a new shape. Compare the shape and its area to your answers in parts (a) and (b).
 $$\mathbf{M}_{vh} = \begin{bmatrix} 1 & k=0.5 \\ k=0.5 & 1 \end{bmatrix} ~~~~~ \textrm{and} ~~~~~\mathbf{A}   = \begin{bmatrix} 1 & -7 \\ 5 & 9 \end{bmatrix}$$
@@ -352,7 +356,7 @@ $$\mathbf{M}_{vh} = \begin{bmatrix} 1 & k=0.5 \\ k=0.5 & 1 \end{bmatrix} ~~~~~ \
 **Solution**
 ```{r}
 #| label: fig-unitsquare3.3
-#| fig-cap: "The unit square."
+#| fig-cap: ""
 #| fig-width: 3
 #| fig-height: 3
 #| scale: "80%"
@@ -380,6 +384,8 @@ ggplot() +
   labs(x = "x", y = "y")
 det(T)
 ```
+
+Both the shape and the area is different from parts(a) and (b).
 
 # Question 4
 
@@ -451,12 +457,15 @@ T = A %*% M
 ## Part d
 Create a data frame `leaning.ladder` with the `x` and `y` equal to the first and second column of $\mathbf{T}$, respectively, and the same values of `group` from `ladder`. 
 
+**Solution**
+```{r}
+leaning.ladder = data.frame(x = T[,1], y = T[,2], group = rep(x=1:11, each = 2))
+```
 
 ## Part e
 Remove `eval: false` in the code below. The result should look like a ladder and a very rectangular house if part a is correct. The new leaning ladder should look like it is leaning on the house.
 
 ```{r}
-#| eval: false
 #| label: fig-ladder2
 #| fig-cap: "A ladder and a leaning ladder."
 #| fig-width: 3
