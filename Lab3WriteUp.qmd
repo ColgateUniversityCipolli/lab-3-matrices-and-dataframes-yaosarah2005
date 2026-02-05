@@ -119,12 +119,30 @@ Let's transform $\mathbf{M}$ to demonstrate an interesting linear algebra proper
 Create the matrix `A` in `R`.
 $$\mathbf{A} = \begin{bmatrix} 1 & -7 \\ 5 & 9 \end{bmatrix}$$
 
+**Solution**
+```{r}
+(A = matrix(data = c(1, -7, 5, 9), nrow = 2, ncol = 2, byrow = TRUE))
+```
+
 ## Part b
 Compute the product below in `R` and store it in an object `T`.
 $$\mathbf{T} = \mathbf{A}\mathbf{M}.$$
 
+**Solution**
+```{r}
+M = matrix(data = c(1, 0, 0, 1), nrow = 2, ncol = 2, byrow = TRUE)
+(T = A %*% M)
+```
+
+
 ## Part c
 Create `basis.vector.1` (first column of `T`) and `basis.vector.2` (second column of `T`) in `R`.
+
+**Solution**
+```{r}
+basis.vector.1 = T[,1]
+basis.vector.2 = T[,2]
+```
 
 ## Part d
 Compute the points $p_0$, $p_1$, $p_2$, and $p_3$.
