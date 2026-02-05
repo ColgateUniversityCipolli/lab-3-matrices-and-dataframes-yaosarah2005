@@ -147,11 +147,45 @@ basis.vector.2 = T[,2]
 ## Part d
 Compute the points $p_0$, $p_1$, $p_2$, and $p_3$.
 
+**Solution**
+```{r}
+p0 <- c(0, 0)
+p1 <- basis.vector.1
+p2 <- basis.vector.1 + basis.vector.2
+p3 <- basis.vector.2
+```
+
 ## Part e
 Copy and paste the code for the unit square. Edit the code to draw the segments that form the boundary based on the points in Part d.
 
+**Solution**
+```{r}
+#| label: fig-unitsquare1
+#| fig-cap: "The unit square."
+#| fig-width: 3
+#| fig-height: 3
+#| scale: "80%"
+#| fig-align: "center"
+#| size: "scriptsize"
+
+ggplot() +
+  geom_segment(aes(x = p0[1], y = p0[2], xend = p1[1], yend = p1[2])) +
+  geom_segment(aes(x = p1[1], y = p1[2], xend = p2[1], yend = p2[2])) +
+  geom_segment(aes(x = p2[1], y = p2[2], xend = p3[1], yend = p3[2])) +
+  geom_segment(aes(x = p3[1], y = p3[2], xend = p0[1], yend = p0[2])) +
+  theme_bw() +
+  xlim(-20, 20) +
+  ylim(-20, 20) +
+  labs(x = "x", y = "y")
+```
+
 ## Part f
 Interestingly, the determinant of $\mathbf{A}$ gives us the area of the shape plotted in Part e. Find the determinant of $\mathbf{A}$.
+
+**Solution**
+```{r}
+det(A)
+```
 
 # Question 2
 Recomplete Question 1 using a new matrix for $\mathbf{A}$. This matrix is not as well behaved.
